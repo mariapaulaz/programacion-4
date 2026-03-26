@@ -15,7 +15,7 @@ document.getElementById('btn-localidad').addEventListener('click', async () => {
     if (capaLocalidad) return; // Ya está cargada
 
     try {
-        const respuesta = await fetch('/api/loca');
+        const respuesta = await fetch('../backend/loca.geojson');
         const data = await respuesta.json(); // Formato ArcGIS JSON
         
         // Filtrar localidad para que sea SOLO Antonio Nariño (LocCodigo 15 o por nombre)
@@ -53,7 +53,7 @@ document.getElementById('btn-paradas').addEventListener('click', async () => {
     if (capaParaderos) return; // Ya está cargada
 
     try {
-        const respuesta = await fetch('/api/paraderos');
+        const respuesta = await fetch('../backend/paraderos.json');
         const data = await respuesta.json();
         
         capaParaderos = L.layerGroup().addTo(map);
